@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stay | Amenities & Services | Monte Petrosu</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: '#C5A059',
+                        charcoal: '#262626',
+                        ivory: '#FAF9F6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="w-full bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="font-serif text-2xl tracking-tighter uppercase">Monte Petrosu</a>
+            <ul class="hidden md:flex space-x-12 text-sm uppercase tracking-widest font-medium">
+                <li><a href="index.html" class="hover:text-gold transition">Home</a></li>
+                <li><a href="services.html" class="hover:text-gold transition underline underline-offset-8 decoration-gold">The Stay</a></li>
+                <li><a href="https://www.airbnb.it/rooms/642805362155531492" class="px-6 py-2 border border-charcoal hover:bg-charcoal hover:text-white transition inline-block">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="py-24 px-6 max-w-7xl mx-auto">
+        <header class="mb-24 text-center" data-aos="fade-down">
+            <h1 class="font-serif text-5xl md:text-7xl mb-6">Refined Comfort</h1>
+            <p class="text-gray-500 uppercase tracking-[0.3em] text-sm">Amenities & House Etiquette</p>
+        </header>
+
+        <!-- Amenities Grid -->
+        <div class="grid md:grid-cols-2 gap-24 mb-32">
+            <div data-aos="fade-right" data-aos-delay="200">
+                <h2 class="font-serif text-3xl mb-12 italic border-b border-gray-100 pb-4">Interior Essentials</h2>
+                <ul class="space-y-8">
+                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
+                        <span class="font-medium uppercase tracking-widest text-xs">Climate Control</span>
+                        <span class="text-gray-500 italic font-serif">Full Air Conditioning</span>
+                    </li>
+                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
+                        <span class="font-medium uppercase tracking-widest text-xs">Culinary</span>
+                        <span class="text-gray-500 italic font-serif">Gourmet Kitchenette</span>
+                    </li>
+                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
+                        <span class="font-medium uppercase tracking-widest text-xs">Laundry</span>
+                        <span class="text-gray-500 italic font-serif">Washing Machine & Iron</span>
+                    </li>
+                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
+                        <span class="font-medium uppercase tracking-widest text-xs">Connectivity</span>
+                        <span class="text-gray-500 italic font-serif">Entertainment System</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div data-aos="fade-left" data-aos-delay="400">
+                <h2 class="font-serif text-3xl mb-12 italic border-b border-gray-100 pb-4">Outdoor & Service</h2>
+                <ul class="space-y-8">
+                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
+                        <span class="font-medium uppercase tracking-widest text-xs">Private Veranda</span>
+                        <span class="text-gray-500 italic font-serif">Covered Balcony</span>
+                    </li>
+                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
+                        <span class="font-medium uppercase tracking-widest text-xs">Arrival</span>
+                        <span class="text-gray-500 italic font-serif">Seamless Self Check-in</span>
+                    </li>
+                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
+                        <span class="font-medium uppercase tracking-widest text-xs">Parking</span>
+                        <span class="text-gray-500 italic font-serif">Dedicated On-site Space</span>
+                    </li>
+                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
+                        <span class="font-medium uppercase tracking-widest text-xs">Refresh</span>
+                        <span class="text-gray-500 italic font-serif">Outdoor Shower</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- House Rules -->
+        <section class="bg-white p-12 md:p-24 rounded-sm border border-gray-100" data-aos="fade-up">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="font-serif text-4xl mb-12 text-center italic">House Etiquette</h2>
+                <div class="space-y-12">
+                    <div class="grid md:grid-cols-3 gap-8 text-center border-b border-gray-100 pb-12">
+                        <div data-aos="zoom-in" data-aos-delay="200">
+                            <span class="block uppercase tracking-widest text-[10px] mb-2 text-gold">Check-In</span>
+                            <span class="font-serif text-xl">15:00 — 20:00</span>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-delay="400">
+                            <span class="block uppercase tracking-widest text-[10px] mb-2 text-gold">Check-Out</span>
+                            <span class="font-serif text-xl">By 10:00</span>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-delay="600">
+                            <span class="block uppercase tracking-widest text-[10px] mb-2 text-gold">Occupancy</span>
+                            <span class="font-serif text-xl">Up to 4 Guests</span>
+                        </div>
+                    </div>
+                    
+                    <div class="prose prose-sm text-gray-500 leading-relaxed text-center mx-auto" data-aos="fade-up" data-aos-delay="300">
+                        <p class="mb-6">We invite our guests to treat this private residence with the utmost care and respect. To maintain the serenity of our complex, events and parties are strictly forbidden.</p>
+                        <p class="text-[10px] uppercase tracking-widest font-bold">Important Note</p>
+                        <p>Bed linens and towels are provided upon request for an additional fee, payable on site. The property is equipped with a private water reserve for your uninterrupted comfort.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 border-t border-gray-100 text-center mt-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="font-serif text-3xl mb-8 italic uppercase tracking-tighter">Monte Petrosu</div>
+            <p class="mt-12 text-[10px] text-gray-300 uppercase tracking-widest">&copy; 2026 Appartamento Monte Petrosu. Refined Living.</p>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+    </script>
+
+</body>
+</html>
