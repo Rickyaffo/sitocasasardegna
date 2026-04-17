@@ -15,6 +15,16 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2H663JN9V3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-2H663JN9V3');
+    </script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -39,17 +49,39 @@
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="font-serif text-2xl tracking-tighter uppercase">San Teodoro</div>
+            
+            <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-10 text-xs uppercase tracking-widest font-medium items-center">
                 <li><a href="index.html" class="hover:text-gold transition underline underline-offset-8 decoration-gold">Home</a></li>
                 <li><a href="services.html" class="hover:text-gold transition">The Stay</a></li>
-                <li><a href="#gallery" class="hover:text-gold transition">Gallery</a></li>
+                <li><a href="gallery.html" class="hover:text-gold transition">Gallery</a></li>
                 <li class="border-l border-gray-200 pl-10 flex space-x-4">
                     <a href="../index.html" class="hover:text-gold transition text-[10px]">IT</a>
                     <span class="text-gray-300">|</span>
                     <a href="index.html" class="text-gold font-bold text-[10px]">EN</a>
                 </li>
-                <li><a href="https://www.airbnb.it/rooms/642805362155531492" class="px-6 py-2 border border-charcoal hover:bg-charcoal hover:text-white transition inline-block ml-4">Book</a></li>
+                <li><a href="https://www.airbnb.it/multicalendar/642805362155531492" class="px-6 py-2 border border-charcoal hover:bg-charcoal hover:text-white transition inline-block ml-4">Book</a></li>
             </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden text-charcoal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 p-8 space-y-6 text-center uppercase tracking-widest text-xs font-medium shadow-xl">
+            <a href="index.html" class="block hover:text-gold">Home</a>
+            <a href="services.html" class="block hover:text-gold">The Stay</a>
+            <a href="gallery.html" class="block hover:text-gold">Gallery</a>
+            <div class="flex justify-center space-x-4 pt-4 border-t border-gray-50">
+                <a href="../index.html" class="">IT</a>
+                <span class="text-gray-300">|</span>
+                <a href="index.html" class="text-gold font-bold">EN</a>
+            </div>
+            <a href="https://www.airbnb.it/multicalendar/642805362155531492" class="block py-4 border border-charcoal hover:bg-charcoal hover:text-white transition">Book Now</a>
         </div>
     </nav>
 
@@ -62,6 +94,9 @@
         <div class="relative z-10 text-center text-white px-6">
             <h1 class="font-serif text-5xl md:text-8xl mb-6 italic" data-aos="fade-up">Sardinian Serenity</h1>
             <p class="text-lg md:text-xl uppercase tracking-[0.3em] font-light" data-aos="fade-up" data-aos-delay="300">San Teodoro Apartment</p>
+            <div class="mt-12" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://www.airbnb.it/multicalendar/642805362155531492" class="bg-gold text-white px-10 py-4 uppercase tracking-widest text-xs font-bold hover:bg-charcoal transition shadow-xl">Check Availability</a>
+            </div>
         </div>
     </header>
 
@@ -73,7 +108,7 @@
                 Located in a charming, recently built residential complex in San Teodoro, our three-room apartment sleeps up to 4 guests. It serves as a refined home base for those wishing to explore the crystal-clear waters of Cala Brandinchi and Lu Impostu.
             </p>
             <p class="leading-relaxed text-gray-600">
-                The space features a thoughtfully designed dining area, a master suite, and a versatile second bedroom. Every corner is curated to provide a peaceful Mediterranean atmosphere, complete with a private veranda for your evening aperitifs.
+                The space features a dining area with a traditional Sardinian feel, a master suite, and a versatile second bedroom. Every corner is curated to provide a peaceful Mediterranean atmosphere, complete with a private veranda for your evening aperitifs.
             </p>
         </div>
     </section>
@@ -107,40 +142,62 @@
             <!-- Swiper -->
             <div class="swiper testimonialSwiper pb-16" data-aos="fade-up" data-aos-delay="200">
                 <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
                     <div class="swiper-slide text-center px-4 md:px-12 mb-10">
                         <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"Very nice and functional accommodation, in an excellent position in the beautiful and peaceful San Teodoro. The house is airy and recent, with excellent fixtures and mosquito nets. Very pleasant to dine on the terrace. Riccardo available and kind."</p>
-                        <span class="block uppercase tracking-widest text-xs font-bold text-gold">Michela — Genoa, Italy</span>
+                        <span class="block uppercase tracking-widest text-xs font-bold text-gold">Michela — Genova, Italy</span>
                     </div>
-                    <!-- Slide 2 -->
                     <div class="swiper-slide text-center px-4 md:px-12 mb-10">
                         <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"The apartment is exactly as shown in the photos and described in the advertisement. It is very clean and equipped with everything you need. The location is excellent, close to the most famous beaches, and having a parking space was a big advantage."</p>
                         <span class="block uppercase tracking-widest text-xs font-bold text-gold">Andrijana — Zagreb, Croatia</span>
                     </div>
-                    <!-- Slide 3 -->
                     <div class="swiper-slide text-center px-4 md:px-12 mb-10">
                         <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"The house is new and well kept with a nice terrace. The area is strategic: outside the chaos of San Teodoro but close to all the beaches."</p>
                         <span class="block uppercase tracking-widest text-xs font-bold text-gold">Federica — Almenno San Salvatore, Italy</span>
                     </div>
-                    <!-- Slide 4 -->
-                    <div class="swiper-slide text-center px-4 md:px-12 mb-10">
-                        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"House in an elevated position that guarantees excellent air flow even on the hottest days. The apartment is new and very well maintained with all new and perfectly functioning appliances. Recommended."</p>
-                        <span class="block uppercase tracking-widest text-xs font-bold text-gold">Bruno</span>
-                    </div>
-                    <!-- Slide 5 -->
-                    <div class="swiper-slide text-center px-4 md:px-12 mb-10">
-                        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"We had a really good time: the house is welcoming, clean, tidy and well furnished. I really appreciated the silence after other noisy experiences. Fresh house equipped with air conditioning. A stone's throw away there are places where you can eat well."</p>
-                        <span class="block uppercase tracking-widest text-xs font-bold text-gold">Patrizia — Campi Bisenzio, Italy</span>
-                    </div>
-                    <!-- Slide 6 -->
-                    <div class="swiper-slide text-center px-4 md:px-12 mb-10">
-                        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"The house was comfortable and large with air conditioning, parking and a nice terrace. Nearby there were some bars and restaurants and the beaches were a few minutes away by car. Riccardo has always been kind and helpful."</p>
-                        <span class="block uppercase tracking-widest text-xs font-bold text-gold">Giovanni — Bologna, Italy</span>
-                    </div>
                 </div>
-                <!-- Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="w-full h-[500px] bg-gray-100 relative overflow-hidden" data-aos="fade-up">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.384666572111!2d9.6975!3d40.8521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d94829d5b032d1%3A0x6b77209930f30c6b!2sVia%20Cala%20Girgolu%2C%2032%2C%2007052%20Monte%20Petrosu%20SS!5e0!3m2!1sit!2sit!4v1713280000000!5m2!1sit!2sit" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contatti" class="py-32 bg-white px-6">
+        <div class="max-w-4xl mx-auto">
+            <header class="text-center mb-16">
+                <h3 class="font-serif text-3xl md:text-5xl mb-4 italic" data-aos="fade-up">Contact Us Directly</h3>
+                <p class="text-gray-400 uppercase tracking-widest text-xs" data-aos="fade-up" data-aos-delay="200">For info and bookings</p>
+            </header>
+            
+            <form action="mailto:riccardo.affolter@gmail.com" method="post" enctype="text/plain" class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex flex-col">
+                    <label class="uppercase tracking-widest text-[10px] mb-2 font-bold text-gray-400">Name</label>
+                    <input type="text" name="name" required class="border-b border-gray-200 py-3 focus:border-gold outline-none transition bg-transparent">
+                </div>
+                <div class="flex flex-col">
+                    <label class="uppercase tracking-widest text-[10px] mb-2 font-bold text-gray-400">Email</label>
+                    <input type="email" name="email" required class="border-b border-gray-200 py-3 focus:border-gold outline-none transition bg-transparent">
+                </div>
+                <div class="flex flex-col md:col-span-2">
+                    <label class="uppercase tracking-widest text-[10px] mb-2 font-bold text-gray-400">Message</label>
+                    <textarea name="message" rows="4" required class="border-b border-gray-200 py-3 focus:border-gold outline-none transition bg-transparent"></textarea>
+                </div>
+                <div class="md:col-span-2 text-center mt-8">
+                    <button type="submit" class="bg-charcoal text-white px-12 py-4 uppercase tracking-[0.2em] text-xs font-bold hover:bg-gold transition">Send Message</button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -168,14 +225,14 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="font-serif text-3xl mb-8 italic uppercase tracking-tighter">San Teodoro</div>
             <div class="flex flex-col items-center space-y-4">
-                <p class="text-gray-400 text-sm tracking-widest uppercase">Sardinia, Italy</p>
+                <p class="text-gray-400 text-sm tracking-widest uppercase">Monte Petrosu, Sardinia, Italy</p>
                 <div class="text-gold font-serif italic text-lg">
                     <a href="tel:+393381087298" class="hover:underline">Riccardo Affolter: +39 338 1087298</a>
                 </div>
             </div>
             <div class="flex justify-center space-x-8 text-xs uppercase tracking-[0.2em] font-medium mt-8">
                 <a href="index.html" class="hover:text-gold transition">Instagram</a>
-                <a href="https://www.airbnb.it/rooms/642805362155531492" class="hover:text-gold transition">Airbnb</a>
+                <a href="https://www.airbnb.it/multicalendar/642805362155531492" class="hover:text-gold transition">Airbnb</a>
                 <a href="#gallery" class="hover:text-gold transition">Contact</a>
             </div>
             <p class="mt-12 text-[10px] text-gray-300 uppercase tracking-widest">&copy; 2026 San Teodoro Apartment. Refined Living. | <a href="cookie-policy.html" class="hover:text-gold transition">Cookie Policy</a></p>
@@ -259,7 +316,7 @@
 
       acceptBtn.addEventListener('click', async () => {
           const anonymousId = generateUUID();
-          setCookie(COOKIE_NAME, anonymousId, 180);
+          setCookie(COOKIE_NAME, anonymousId, 180); // 6 months
           banner.classList.add('translate-y-full');
           loadGTM();
           try {
@@ -279,6 +336,14 @@
       declineBtn.addEventListener('click', () => {
           setCookie(COOKIE_NAME, 'declined', 30);
           banner.classList.add('translate-y-full');
+      });
+
+      // Mobile Menu Logic
+      const mobileToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
       });
     </script>
 </body>

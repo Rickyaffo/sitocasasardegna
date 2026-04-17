@@ -15,6 +15,16 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2H663JN9V3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-2H663JN9V3');
+    </script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -50,7 +60,7 @@
                     <span class="text-gray-300">|</span>
                     <a href="en/index.html" class="hover:text-gold transition text-[10px]">EN</a>
                 </li>
-                <li><a href="https://www.airbnb.it/rooms/642805362155531492" class="px-6 py-2 border border-charcoal hover:bg-charcoal hover:text-white transition inline-block ml-4">Prenota</a></li>
+                <li><a href="https://www.airbnb.it/multicalendar/642805362155531492" class="px-6 py-2 border border-charcoal hover:bg-charcoal hover:text-white transition inline-block ml-4">Prenota</a></li>
             </ul>
 
             <!-- Mobile Menu Toggle -->
@@ -71,7 +81,7 @@
                 <span class="text-gray-300">|</span>
                 <a href="en/index.html" class="">EN</a>
             </div>
-            <a href="https://www.airbnb.it/rooms/642805362155531492" class="block py-4 border border-charcoal hover:bg-charcoal hover:text-white transition">Prenota Ora</a>
+            <a href="https://www.airbnb.it/multicalendar/642805362155531492" class="block py-4 border border-charcoal hover:bg-charcoal hover:text-white transition">Prenota Ora</a>
         </div>
     </nav>
 
@@ -84,6 +94,9 @@
         <div class="relative z-10 text-center text-white px-6">
             <h1 class="font-serif text-5xl md:text-8xl mb-6 italic" data-aos="fade-up">Serenità Sarda</h1>
             <p class="text-lg md:text-xl uppercase tracking-[0.3em] font-light" data-aos="fade-up" data-aos-delay="300">Appartamento San Teodoro</p>
+            <div class="mt-12" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://www.airbnb.it/multicalendar/642805362155531492" class="bg-gold text-white px-10 py-4 uppercase tracking-widest text-xs font-bold hover:bg-charcoal transition shadow-xl">Verifica Disponibilità</a>
+            </div>
         </div>
     </header>
 
@@ -95,7 +108,7 @@
                 Situato in un incantevole complesso residenziale di recente costruzione a San Teodoro, il nostro trilocale accoglie fino a 4 ospiti. Rappresenta la base ideale per chi desidera esplorare le acque cristalline di Cala Brandinchi e Lu Impostu.
             </p>
             <p class="leading-relaxed text-gray-600">
-                Lo spazio vanta una zona pranzo dal design curato, una suite matrimoniale e una seconda camera versatile. Ogni angolo è pensato per offrire una tranquilla atmosfera mediterranea, completa di veranda privata per i vostri aperitivi serali.
+                Lo spazio vanta una zona pranzo dal gusto tipico sardo, una suite matrimoniale e una seconda camera versatile. Ogni angolo è pensato per offrire una tranquilla atmosfera mediterranea, completa di veranda privata per i vostri aperitivi serali.
             </p>
         </div>
     </section>
@@ -129,40 +142,62 @@
             <!-- Swiper -->
             <div class="swiper testimonialSwiper pb-16" data-aos="fade-up" data-aos-delay="200">
                 <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
                     <div class="swiper-slide text-center px-4 md:px-12 mb-10">
                         <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"Alloggio molto carino e funzionale, in ottima posizione nella splendida e tranquilla San Teodoro. L'abitazione è ventilata e recente, con ottimi infissi e zanzariere. Molto piacevole cenare nella terrazza. Riccardo disponibile e gentile."</p>
                         <span class="block uppercase tracking-widest text-xs font-bold text-gold">Michela — Genova, Italia</span>
                     </div>
-                    <!-- Slide 2 -->
                     <div class="swiper-slide text-center px-4 md:px-12 mb-10">
                         <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"L'appartamento è esattamente come mostrato nelle foto e descritto nell'annuncio. È molto pulito e dotato di tutto il necessario. La posizione è ottima, vicino alle spiagge più famose, e avere un posto auto è stato un grande vantaggio."</p>
                         <span class="block uppercase tracking-widest text-xs font-bold text-gold">Andrijana — Zagabria, Croazia</span>
                     </div>
-                    <!-- Slide 3 -->
                     <div class="swiper-slide text-center px-4 md:px-12 mb-10">
                         <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"La casa è nuova e ben curata con una bella terrazza. La zona è strategica: fuori dal caos di San Teodoro ma vicina a tutte le spiagge."</p>
                         <span class="block uppercase tracking-widest text-xs font-bold text-gold">Federica — Almenno San Salvatore, Italia</span>
                     </div>
-                    <!-- Slide 4 -->
-                    <div class="swiper-slide text-center px-4 md:px-12 mb-10">
-                        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"Casa in posizione elevata che garantisce un’ottimo giro d’aria anche nelle giornate più calde. L’appartamento è nuovo e tenuto molto bene con tutti gli elettrodomestici nuovi e perfettamente funzionanti. Consigliato."</p>
-                        <span class="block uppercase tracking-widest text-xs font-bold text-gold">Bruno</span>
-                    </div>
-                    <!-- Slide 5 -->
-                    <div class="swiper-slide text-center px-4 md:px-12 mb-10">
-                        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"Siamo state veramente bene: la casa è accogliente, pulita, ordinata e ben arredata. Ho apprezzato molto il silenzio dopo altre esperienze rumorose. Casa fresca e dotata di aria condizionata. A due passi ci sono locali dove si mangia bene."</p>
-                        <span class="block uppercase tracking-widest text-xs font-bold text-gold">Patrizia — Campi Bisenzio, Italia</span>
-                    </div>
-                    <!-- Slide 6 -->
-                    <div class="swiper-slide text-center px-4 md:px-12 mb-10">
-                        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-8 italic">"La casa era comoda e grande con aria condizionata, parcheggio e un bel terrazzo. Nei dintorni c’erano alcuni bar e ristoranti e le spiagge erano a pochi minuti di macchina. Riccardo è sempre stato gentile e disponibile."</p>
-                        <span class="block uppercase tracking-widest text-xs font-bold text-gold">Giovanni — Bologna, Italia</span>
-                    </div>
                 </div>
-                <!-- Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="w-full h-[500px] bg-gray-100 relative overflow-hidden" data-aos="fade-up">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.384666572111!2d9.6975!3d40.8521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d94829d5b032d1%3A0x6b77209930f30c6b!2sVia%20Cala%20Girgolu%2C%2032%2C%2007052%20Monte%20Petrosu%20SS!5e0!3m2!1sit!2sit!4v1713280000000!5m2!1sit!2sit" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contatti" class="py-32 bg-white px-6">
+        <div class="max-w-4xl mx-auto">
+            <header class="text-center mb-16">
+                <h3 class="font-serif text-3xl md:text-5xl mb-4 italic" data-aos="fade-up">Contattaci Direttamente</h3>
+                <p class="text-gray-400 uppercase tracking-widest text-xs" data-aos="fade-up" data-aos-delay="200">Per info e prenotazioni</p>
+            </header>
+            
+            <form action="mailto:riccardo.affolter@gmail.com" method="post" enctype="text/plain" class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex flex-col">
+                    <label class="uppercase tracking-widest text-[10px] mb-2 font-bold text-gray-400">Nome</label>
+                    <input type="text" name="name" required class="border-b border-gray-200 py-3 focus:border-gold outline-none transition bg-transparent">
+                </div>
+                <div class="flex flex-col">
+                    <label class="uppercase tracking-widest text-[10px] mb-2 font-bold text-gray-400">Email</label>
+                    <input type="email" name="email" required class="border-b border-gray-200 py-3 focus:border-gold outline-none transition bg-transparent">
+                </div>
+                <div class="flex flex-col md:col-span-2">
+                    <label class="uppercase tracking-widest text-[10px] mb-2 font-bold text-gray-400">Messaggio</label>
+                    <textarea name="message" rows="4" required class="border-b border-gray-200 py-3 focus:border-gold outline-none transition bg-transparent"></textarea>
+                </div>
+                <div class="md:col-span-2 text-center mt-8">
+                    <button type="submit" class="bg-charcoal text-white px-12 py-4 uppercase tracking-[0.2em] text-xs font-bold hover:bg-gold transition">Invia Messaggio</button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -190,15 +225,15 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="font-serif text-3xl mb-8 italic uppercase tracking-tighter">San Teodoro</div>
             <div class="flex flex-col items-center space-y-4">
-                <p class="text-gray-400 text-sm tracking-widest uppercase">San Teodoro, Sardegna, Italia</p>
+                <p class="text-gray-400 text-sm tracking-widest uppercase">Monte Petrosu, Sardegna, Italia</p>
                 <div class="text-gold font-serif italic text-lg">
                     <a href="tel:+393381087298" class="hover:underline">Riccardo Affolter: +39 338 1087298</a>
                 </div>
             </div>
             <div class="flex justify-center space-x-8 text-xs uppercase tracking-[0.2em] font-medium mt-8">
                 <a href="index.html" class="hover:text-gold transition">Instagram</a>
-                <a href="https://www.airbnb.it/rooms/642805362155531492" class="hover:text-gold transition">Airbnb</a>
-                <a href="#gallery" class="hover:text-gold transition">Contatti</a>
+                <a href="https://www.airbnb.it/multicalendar/642805362155531492" class="hover:text-gold transition">Airbnb</a>
+                <a href="gallery.html" class="hover:text-gold transition">Galleria</a>
             </div>
             <p class="mt-12 text-[10px] text-gray-300 uppercase tracking-widest">&copy; 2026 Appartamento San Teodoro. Refined Living. | <a href="cookie-policy.html" class="hover:text-gold transition">Cookie Policy</a></p>
         </div>
@@ -243,21 +278,18 @@
       const acceptBtn = document.getElementById('accept-cookies');
       const declineBtn = document.getElementById('decline-cookies');
 
-      // Helper: Set Cookie
       function setCookie(name, value, days) {
           const date = new Date();
           date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
           document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax`;
       }
 
-      // Helper: Get Cookie
       function getCookie(name) {
           const value = `; ${document.cookie}`;
           const parts = value.split(`; ${name}=`);
           if (parts.length === 2) return parts.pop().split(';').shift();
       }
 
-      // Helper: Generate UUID
       function generateUUID() {
           return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
               var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -265,7 +297,6 @@
           });
       }
 
-      // Helper: Load Google Tag Manager
       function loadGTM() {
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -274,7 +305,6 @@
           })(window,document,'script','dataLayer', GTM_ID);
       }
 
-      // Logic: Show Banner
       window.addEventListener('load', () => {
           const consent = getCookie(COOKIE_NAME);
           if (!consent) {
@@ -284,7 +314,6 @@
           }
       });
 
-      // Logic: Accept
       acceptBtn.addEventListener('click', async () => {
           const anonymousId = generateUUID();
           setCookie(COOKIE_NAME, anonymousId, 180); // 6 months
@@ -306,7 +335,6 @@
           } catch (e) { console.error("Registry error:", e); }
       });
 
-      // Logic: Decline
       declineBtn.addEventListener('click', () => {
           setCookie(COOKIE_NAME, 'declined', 30);
           banner.classList.add('translate-y-full');
