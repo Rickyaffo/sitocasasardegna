@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery | San Teodoro Apartment</title>
+    <meta name="description" content="Browse images of our refined apartment in San Teodoro. Elegant interiors, cozy bedrooms and the beauty of the Sardinian sea.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
+                    colors: { gold: '#C5A059', charcoal: '#262626', ivory: '#FAF9F6' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="font-serif text-2xl tracking-tighter uppercase">San Teodoro</a>
+            <ul class="hidden md:flex space-x-10 text-xs uppercase tracking-widest font-medium items-center">
+                <li><a href="index.html" class="hover:text-gold transition">Home</a></li>
+                <li><a href="services.html" class="hover:text-gold transition">The Stay</a></li>
+                <li><a href="gallery.html" class="hover:text-gold transition underline underline-offset-8 decoration-gold">Gallery</a></li>
+                <li class="border-l border-gray-200 pl-10 flex space-x-4">
+                    <a href="../gallery.html" class="hover:text-gold transition text-[10px]">IT</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="gallery.html" class="text-gold font-bold text-[10px]">EN</a>
+                </li>
+            </ul>
+            <button id="mobile-menu-toggle" class="md:hidden text-charcoal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 p-8 space-y-6 text-center uppercase tracking-widest text-xs font-medium shadow-xl">
+            <a href="index.html" class="block hover:text-gold">Home</a>
+            <a href="services.html" class="block hover:text-gold">The Stay</a>
+            <a href="gallery.html" class="block hover:text-gold">Gallery</a>
+            <div class="flex justify-center space-x-4 pt-4 border-t border-gray-50">
+                <a href="../gallery.html" class="">IT</a>
+                <span class="text-gray-300">|</span>
+                <a href="gallery.html" class="text-gold font-bold">EN</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-32 px-6 max-w-7xl mx-auto">
+        <header class="mb-24 text-center" data-aos="fade-down">
+            <h1 class="font-serif text-5xl md:text-7xl mb-6 italic">Sardinian Visions</h1>
+            <p class="text-gray-500 uppercase tracking-[0.3em] text-sm">A visual journey through our home</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Image 1 -->
+            <div class="group" data-aos="fade-up">
+                <div class="overflow-hidden aspect-[4/3] mb-6 shadow-sm">
+                    <img src="../images/soggiorno.jpg" alt="Living Area" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </div>
+                <h3 class="font-serif text-xl italic mb-2">Everyday Elegance</h3>
+                <p class="text-xs text-gray-400 uppercase tracking-widest leading-relaxed">A spacious living area flooded with natural light, where comfort meets modern design.</p>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="group" data-aos="fade-up" data-aos-delay="100">
+                <div class="overflow-hidden aspect-[4/3] mb-6 shadow-sm">
+                    <img src="../images/cameramatrimoniale.jpg" alt="Master Bedroom" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </div>
+                <h3 class="font-serif text-xl italic mb-2">Mediterranean Dreams</h3>
+                <p class="text-xs text-gray-400 uppercase tracking-widest leading-relaxed">The master bedroom, a nest of tranquility curated in every detail for your rest.</p>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="group" data-aos="fade-up" data-aos-delay="200">
+                <div class="overflow-hidden aspect-[4/3] mb-6 shadow-sm">
+                    <img src="../images/camerapiccola.jpg" alt="Twin Bedroom" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </div>
+                <h3 class="font-serif text-xl italic mb-2">Versatile Hospitality</h3>
+                <p class="text-xs text-gray-400 uppercase tracking-widest leading-relaxed">The second bedroom, ideal for friends or family, offers flexible and welcoming spaces.</p>
+            </div>
+
+            <!-- Image 4 -->
+            <div class="group" data-aos="fade-up">
+                <div class="overflow-hidden aspect-[4/3] mb-6 shadow-sm">
+                    <img src="../images/balcone1.jpg" alt="Balcony View" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </div>
+                <h3 class="font-serif text-xl italic mb-2">Outdoor Breath</h3>
+                <p class="text-xs text-gray-400 uppercase tracking-widest leading-relaxed">The covered veranda, the perfect place for sun-kissed breakfasts or dinners under the stars.</p>
+            </div>
+
+            <!-- Image 5 -->
+            <div class="group" data-aos="fade-up" data-aos-delay="100">
+                <div class="overflow-hidden aspect-[4/3] mb-6 shadow-sm">
+                    <img src="../images/balcone2.jpg" alt="Outdoor Detail" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </div>
+                <h3 class="font-serif text-xl italic mb-2">Glimpses of Relaxation</h3>
+                <p class="text-xs text-gray-400 uppercase tracking-widest leading-relaxed">Every outdoor space is designed to let you fully experience the Sardinian climate.</p>
+            </div>
+
+            <!-- Image 6 -->
+            <div class="group" data-aos="fade-up" data-aos-delay="200">
+                <div class="overflow-hidden aspect-[4/3] mb-6 shadow-sm">
+                    <img src="../images/bagno.jpg" alt="Bathroom" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </div>
+                <h3 class="font-serif text-xl italic mb-2">Purity and Functionality</h3>
+                <p class="text-xs text-gray-400 uppercase tracking-widest leading-relaxed">Fresh and clean environments equipped with everything you need for your personal care.</p>
+            </div>
+
+            <!-- Image 7 -->
+            <div class="group" data-aos="fade-up">
+                <div class="overflow-hidden aspect-[4/3] mb-6 shadow-sm">
+                    <img src="../images/mare.jpg" alt="Sardinian Sea" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                </div>
+                <h3 class="font-serif text-xl italic mb-2">The Horizon within Reach</h3>
+                <p class="text-xs text-gray-400 uppercase tracking-widest leading-relaxed">The crystal clear waters of San Teodoro await you just a few minutes from our door.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-20 border-t border-gray-100 text-center text-gray-400 uppercase tracking-widest text-[10px]">
+        &copy; 2026 San Teodoro Apartment. | <a href="cookie-policy.html">Cookie Policy</a>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+      const mobileToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileToggle.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    </script>
+</body>
+</html>

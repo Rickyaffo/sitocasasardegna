@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Prohibit all direct client-side access to the consent registry
+    // Data must be written only through the Cloud Function
+    match /registro_consensi/{document=**} {
+      allow read, write: if false;
+    }
+    
+    // Default rule for other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
