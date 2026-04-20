@@ -5,49 +5,70 @@ admin.initializeApp();
 const db = admin.firestore();
 
 /**
- * Cloud Function con gestione MANUALE dei CORS per evitare errori di Preflight.
+ * Cloud Function per la registrazione legale del consenso cookie.
+ * Nome: registraConsenso (HTTP trigger)
  */
 exports.registraConsenso = functions.https.onRequest(async (req, res) => {
-  // 1. Configurazione Header CORS
-  res.set("Access-Control-Allow-Origin", "https://casasardegna-6c0f4.web.app");
+  // 1. Gestione CORS dinamica
+  const allowedOrigins = [
+    "https://casasardegna-6c0f4.web.app",
+    "https://casasardegna-6c0f4.firebaseapp.com",
+    "https://www.casasardegna.net" // Inserire qui il dominio finale se diverso
+  ];
+  
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.set("Access-Control-Allow-Origin", origin);
+  } else {
+    // Per test/local, puoi lasciare *, ma in produzione è meglio essere restrittivi
+    res.set("Access-Control-Allow-Origin", "https://casasardegna-6c0f4.web.app");
+  }
+
   res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.set("Access-Control-Allow-Headers", "Content-Type");
   res.set("Access-Control-Max-Age", "3600");
 
-  // 2. Intercettazione richiesta OPTIONS (Pre-flight)
+  // Preflight request
   if (req.method === "OPTIONS") {
     res.status(204).send("");
     return;
   }
 
-  // 3. Verifica metodo POST
+  // Verifica metodo
   if (req.method !== "POST") {
     res.status(405).send("Method Not Allowed");
     return;
   }
 
+  // 2. Estrazione e validazione dati
   const { id_anonimo, consenso_analytics, url_pagina, lingua } = req.body;
 
-  // 4. Validazione base
   if (!id_anonimo || typeof consenso_analytics !== "boolean") {
-    res.status(400).send("Invalid data");
+    console.warn("Invalid consent data received:", req.body);
+    res.status(400).send({ status: "error", message: "Invalid data" });
     return;
   }
 
   try {
-    // 5. Salvataggio su Firestore
-    await db.collection("registro_consensi").add({
-      id_anonimo: id_anonimo,
-      consenso_analytics: consenso_analytics,
+    // 3. Salvataggio nel Registro Legale (Firestore)
+    const consentDoc = {
+      id_anonimo,
+      consenso_analytics,
       url_pagina: url_pagina || "unknown",
       lingua: lingua || "it",
       timestamp_server: admin.firestore.FieldValue.serverTimestamp(),
-      user_agent: req.headers["user-agent"] || "unknown"
-    });
+      user_agent: req.headers["user-agent"] || "unknown",
+      ip_hash: req.ip ? require("crypto").createHash("sha256").update(req.ip).digest("hex") : "unknown" // Privacy-safe IP
+    };
 
-    res.status(200).send({ status: "success", message: "Consent registered" });
+    await db.collection("registro_consensi").add(consentDoc);
+
+    res.status(200).send({ 
+      status: "success", 
+      message: "Consenso registrato a norma di legge." 
+    });
   } catch (error) {
-    console.error("Error registering consent:", error);
-    res.status(500).send("Internal Server Error");
+    console.error("Errore Firestore registraConsenso:", error);
+    res.status(500).send({ status: "error", message: "Internal Server Error" });
   }
 });

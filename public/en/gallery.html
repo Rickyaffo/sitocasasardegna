@@ -8,6 +8,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Google Tag Manager (Script base sbloccato solo al consenso) -->
+    <script>
+      // Global dataLayer
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Default consent (Deny for GDPR)
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted'
+      });
+    </script>
     <script>
         tailwind.config = {
             theme: {
@@ -128,12 +144,97 @@
         &copy; 2026 San Teodoro Apartment. | <a href="cookie-policy.html">Cookie Policy</a>
     </footer>
 
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full z-[100] transform translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="max-w-7xl mx-auto px-6 pb-8">
+            <div class="bg-white/90 backdrop-blur-xl border border-gray-100 p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 rounded-sm">
+                <div class="flex-1">
+                    <h4 class="font-serif text-xl mb-2 italic">Personalized Experience</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed">We use cookies to ensure you get the best experience on our website. By continuing to browse or clicking "Accept", you consent to the use of cookies. <a href="cookie-policy.html" class="text-gold underline">Read our policy</a>.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <button id="decline-cookies" class="px-8 py-3 text-xs uppercase tracking-widest font-bold border border-gray-200 hover:bg-gray-50 transition">Decline</button>
+                    <button id="accept-cookies" class="px-8 py-3 text-xs uppercase tracking-widest font-bold bg-charcoal text-white hover:bg-gold transition">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({ duration: 1000, once: true });
       const mobileToggle = document.getElementById('mobile-menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
       mobileToggle.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+      // --- SERVERLESS COOKIE SYSTEM ---
+      const COOKIE_NAME = "consenso_cookie_salvato";
+      const GTM_ID = "GTM-KW77K29B";
+      const FUNCTION_URL = "https://europe-west1-casasardegna-6c0f4.cloudfunctions.net/registraConsenso";
+
+      const banner = document.getElementById('cookie-banner');
+      const acceptBtn = document.getElementById('accept-cookies');
+      const declineBtn = document.getElementById('decline-cookies');
+
+      function setCookie(name, value, days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax`;
+      }
+
+      function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+
+      function generateUUID() {
+          return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+              var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+              return v.toString(16);
+          });
+      }
+
+      function loadGTM() {
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer', GTM_ID);
+      }
+
+      window.addEventListener('load', () => {
+          const consent = getCookie(COOKIE_NAME);
+          if (!consent) {
+              setTimeout(() => { banner.classList.remove('translate-y-full'); }, 1000);
+          } else if (consent !== 'declined') {
+              loadGTM();
+          }
+      });
+
+      acceptBtn.addEventListener('click', async () => {
+          const anonymousId = generateUUID();
+          setCookie(COOKIE_NAME, anonymousId, 180); // 6 months
+          banner.classList.add('translate-y-full');
+          loadGTM();
+          try {
+              await fetch(FUNCTION_URL, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                      id_anonimo: anonymousId,
+                      consenso_analytics: true,
+                      url_pagina: window.location.href,
+                      lingua: "en"
+                  })
+              });
+          } catch (e) { console.error("Registry error:", e); }
+      });
+
+      declineBtn.addEventListener('click', () => {
+          setCookie(COOKIE_NAME, 'declined', 30);
+          banner.classList.add('translate-y-full');
+      });
     </script>
 </body>
 </html>
