@@ -52,25 +52,49 @@
 <body class="bg-ivory text-charcoal font-sans antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="font-serif text-2xl tracking-tighter uppercase">San Teodoro</div>
+    <nav class="fixed top-0 w-full z-50 bg-[#262626] text-white py-4 px-6 shadow-xl transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center h-12">
+            <a href="index.html" class="font-serif text-xl md:text-2xl text-[#C5A059] tracking-widest uppercase">Casa Sardegna</a>
             
             <!-- Desktop Menu -->
-            <ul class="hidden md:flex space-x-10 text-xs uppercase tracking-widest font-medium items-center">
-                <li><a href="index.html" class="hover:text-gold transition underline underline-offset-8 decoration-gold">Home</a></li>
-                <li><a href="services.html" class="hover:text-gold transition">The Stay</a></li>
-                <li><a href="gallery.html" class="hover:text-gold transition">Gallery</a></li>
-                <li class="border-l border-gray-200 pl-10 flex space-x-4">
-                    <a href="../index.html" class="hover:text-gold transition text-[10px]">IT</a>
-                    <span class="text-gray-300">|</span>
-                    <a href="index.html" class="text-gold font-bold text-[10px]">EN</a>
-                </li>
-                <li><a href="https://www.airbnb.it/multicalendar/642805362155531492" class="px-6 py-2 border border-charcoal hover:bg-charcoal hover:text-white transition inline-block ml-4">Book</a></li>
-            </ul>
+            <div class="hidden md:flex items-center space-x-6 md:space-x-8">
+                <a href="index.html" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition underline underline-offset-8 decoration-[#C5A059]">Home</a>
+                <a href="services.html" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition">The Stay</a>
+                <a href="gallery.html" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition">Gallery</a>
+                <a href="#reviews" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition">Reviews</a>
+                <a href="#contatti" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition">Contact</a>
+                
+                <div class="border-l border-gray-600 pl-8 flex space-x-4">
+                    <a href="../index.html" class="hover:text-[#C5A059] transition text-[10px]">IT</a>
+                    <span class="text-gray-500">|</span>
+                    <a href="index.html" class="text-[#C5A059] font-bold text-[10px]">EN</a>
+                </div>
+                
+                <a href="tel:+393381087298" class="hover:text-[#C5A059] transition flex items-center ml-4" title="Call Us">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                </a>
+                
+                <div class="relative group cursor-pointer">
+                    <div class="hover:text-[#C5A059] transition flex items-center" title="Get Directions">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                    </div>
+                    <div class="absolute right-0 mt-4 w-56 bg-white text-[#262626] rounded-sm shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden border border-gray-100">
+                        <div class="px-4 py-3 bg-gray-50 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b">Get directions with:</div>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=40.843220,9.658609" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">📍 Google Maps</a>
+                        <a href="https://waze.com/ul?ll=40.843220,9.658609&navigate=yes" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">🚗 Waze</a>
+                        <a href="https://moovitapp.com/directions?to=40.843220,9.658609" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">🚌 Moovit</a>
+                    </div>
+                </div>
+                
+                <a href="https://www.airbnb.it/multicalendar/642805362155531492" class="px-6 py-2 border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition inline-block ml-4 text-xs tracking-widest uppercase">Book</a>
+            </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-toggle" class="md:hidden text-charcoal">
+            <button id="mobile-menu-toggle" class="md:hidden text-white hover:text-[#C5A059] transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -78,18 +102,21 @@
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 p-8 space-y-6 text-center uppercase tracking-widest text-xs font-medium shadow-xl">
-            <a href="index.html" class="block hover:text-gold">Home</a>
-            <a href="services.html" class="block hover:text-gold">The Stay</a>
-            <a href="gallery.html" class="block hover:text-gold">Gallery</a>
-            <div class="flex justify-center space-x-4 pt-4 border-t border-gray-50">
-                <a href="../index.html" class="">IT</a>
-                <span class="text-gray-300">|</span>
-                <a href="index.html" class="text-gold font-bold">EN</a>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-[#262626] border-t border-gray-700 p-8 space-y-6 text-center uppercase tracking-widest text-xs font-medium shadow-2xl text-white">
+            <a href="index.html" class="block hover:text-[#C5A059] transition">Home</a>
+            <a href="services.html" class="block hover:text-[#C5A059] transition">The Stay</a>
+            <a href="gallery.html" class="block hover:text-[#C5A059] transition">Gallery</a>
+            <a href="#reviews" class="block hover:text-[#C5A059] transition">Reviews</a>
+            <a href="#contatti" class="block hover:text-[#C5A059] transition">Contact</a>
+            <div class="flex justify-center space-x-4 pt-4 border-t border-gray-700">
+                <a href="../index.html" class="hover:text-[#C5A059]">IT</a>
+                <span class="text-gray-500">|</span>
+                <a href="index.html" class="text-[#C5A059] font-bold">EN</a>
             </div>
-            <a href="https://www.airbnb.it/multicalendar/642805362155531492" class="block py-4 border border-charcoal hover:bg-charcoal hover:text-white transition">Book Now</a>
+            <a href="https://www.airbnb.it/multicalendar/642805362155531492" class="block py-4 border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition mx-4">Book Now</a>
         </div>
     </nav>
+
 
     <!-- Hero Section -->
     <header class="relative h-screen flex items-center justify-center overflow-hidden">
@@ -141,7 +168,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-32 bg-ivory overflow-hidden">
+    <section id="reviews" class="py-32 bg-ivory overflow-hidden">
         <div class="max-w-4xl mx-auto px-6">
             <h3 class="font-serif text-3xl md:text-5xl text-center mb-16 italic" data-aos="fade-up">Guest Reviews</h3>
             
@@ -169,7 +196,7 @@
     <!-- Map Section -->
     <section class="w-full h-[500px] bg-gray-100 relative overflow-hidden" data-aos="fade-up">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.384666572111!2d9.6975!3d40.8521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d94829d5b032d1%3A0x6b77209930f30c6b!2sVia%20Cala%20Girgolu%2C%2032%2C%2007052%20Monte%20Petrosu%20SS!5e0!3m2!1sit!2sit!4v1713280000000!5m2!1sit!2sit" 
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3500.3809109058285!2d9.658609!3d40.843220!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDUwJzM1LjYiTiA5wrAzOTozMS4wIkU!5e0!3m2!1sit!2sit!4v1713280000000!5m2!1sit!2sit" 
             width="100%" 
             height="100%" 
             style="border:0;" 
@@ -222,7 +249,7 @@
                 <div class="space-y-6">
                     <div class="flex items-center space-x-4">
                         <span class="text-gold border-b border-gold pb-1 font-medium tracking-widest uppercase text-xs">Distance</span>
-                        <span class="text-sm">5-10 min drive to main beaches</span>
+                        <span class="text-sm">2-5 min drive to main beaches</span>
                     </div>
                 </div>
             </div>
