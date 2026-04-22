@@ -13,7 +13,8 @@ exports.registraConsenso = functions.https.onRequest(async (req, res) => {
   const allowedOrigins = [
     "https://casasardegna-6c0f4.web.app",
     "https://casasardegna-6c0f4.firebaseapp.com",
-    "https://www.casasardegna.net" // Inserire qui il dominio finale se diverso
+    "https://www.casacalagirgolu.it",
+    "https://casacalagirgolu.it"
   ];
   
   const origin = req.headers.origin;
@@ -21,7 +22,7 @@ exports.registraConsenso = functions.https.onRequest(async (req, res) => {
     res.set("Access-Control-Allow-Origin", origin);
   } else {
     // Per test/local, puoi lasciare *, ma in produzione è meglio essere restrittivi
-    res.set("Access-Control-Allow-Origin", "https://casasardegna-6c0f4.web.app");
+    res.set("Access-Control-Allow-Origin", "https://www.casacalagirgolu.it");
   }
 
   res.set("Access-Control-Allow-Methods", "POST, OPTIONS");

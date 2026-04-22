@@ -7,6 +7,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Google Tag Manager (Script base sbloccato solo al consenso) -->
+    <script>
+      // Definiamo dataLayer come globale
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Impostiamo il consenso di default (Deny per GDPR)
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted'
+      });
+    </script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -30,7 +47,7 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-[#262626] text-white py-4 px-6 shadow-xl transition-all duration-300">
         <div class="max-w-7xl mx-auto flex justify-between items-center h-12">
-            <a href="index.html" class="font-serif text-xl md:text-2xl text-[#C5A059] tracking-widest uppercase">CASA CALA GIRGOLU</a>
+            <a href="index.html" class="font-serif text-xl md:text-2xl text-[#C5A059] tracking-widest uppercase">Casa Sardegna</a>
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-6 md:space-x-8">
@@ -58,11 +75,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                         </svg>
                     </div>
-                    <div class="absolute right-0 mt-4 w-56 bg-white text-[#262626] rounded-sm shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="absolute right-0 mt-2 w-56 bg-white text-[#262626] rounded-md shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden border border-gray-100">
                         <div class="px-4 py-3 bg-gray-50 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b">Ottieni indicazioni con:</div>
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=40.843220,9.658609" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">📍 Google Maps</a>
-                        <a href="https://waze.com/ul?ll=40.843220,9.658609&navigate=yes" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">🚗 Waze</a>
-                        <a href="https://moovitapp.com/directions?to=40.843220,9.658609" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">🚌 Moovit</a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=via+cala+girgolu+monte+petrosu+ss+italia" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">📍 Google Maps</a>
+                        <a href="https://waze.com/ul?q=via+cala+girgolu+monte+petrosu+ss+italia&navigate=yes" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">🚗 Waze</a>
+                        <a href="https://moovitapp.com/directions?to=via+cala+girgolu+monte+petrosu+ss+italia" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">🚌 Moovit</a>
                     </div>
                 </div>
                 
@@ -192,16 +209,121 @@
         </a>
     </div>
 
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full z-[100] transform translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="max-w-7xl mx-auto px-6 pb-8">
+            <div class="bg-white/90 backdrop-blur-xl border border-gray-100 p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 rounded-sm">
+                <div class="flex-1">
+                    <h4 class="font-serif text-xl mb-2 italic">Esperienza Personalizzata</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed">Utilizziamo i cookie per assicurarvi la migliore esperienza sul nostro sito. Continuando la navigazione o cliccando "Accetta", acconsenti all'uso dei cookie. <a href="cookie-policy.html" class="text-gold underline">Leggi la policy</a>.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <button id="decline-cookies" class="px-8 py-3 text-xs uppercase tracking-widest font-bold border border-gray-200 hover:bg-gray-50 transition">Rifiuta</button>
+                    <button id="accept-cookies" class="px-8 py-3 text-xs uppercase tracking-widest font-bold bg-charcoal text-white hover:bg-gold transition">Accetta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
-        
-        const mobileToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+      AOS.init({ duration: 1000, once: true });
 
-        mobileToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      // --- SERVERLESS COOKIE SYSTEM ---
+      const COOKIE_NAME = "consenso_cookie_salvato";
+      const GTM_ID = "GTM-KW77K29B";
+      const FUNCTION_URL = "https://europe-west1-casasardegna-6c0f4.cloudfunctions.net/registraConsenso";
+
+      const banner = document.getElementById('cookie-banner');
+      const acceptBtn = document.getElementById('accept-cookies');
+      const declineBtn = document.getElementById('decline-cookies');
+
+      function setCookie(name, value, days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax`;
+      }
+
+      function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+
+      function generateUUID() {
+          return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+              var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+              return v.toString(16);
+          });
+      }
+
+      function loadTracking() {
+          // Aggiorniamo il consenso
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted'
+          });
+
+          // Carichiamo gtag.js
+          const gId = 'G-584LHWXEHD';
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gId;
+          document.head.appendChild(script);
+
+          gtag('js', new Date());
+          gtag('config', gId);
+
+          // Carichiamo GTM
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer', GTM_ID);
+      }
+
+      window.addEventListener('load', () => {
+          const consent = getCookie(COOKIE_NAME);
+          if (!consent) {
+              setTimeout(() => { banner.classList.remove('translate-y-full'); }, 1000);
+          } else if (consent !== 'declined') {
+              loadTracking();
+          }
+      });
+
+      acceptBtn.addEventListener('click', async () => {
+          const anonymousId = generateUUID();
+          setCookie(COOKIE_NAME, anonymousId, 180); // 6 months
+          banner.classList.add('translate-y-full');
+          loadTracking();
+
+          // Register consent to Cloud Function (Legal Registry)
+          try {
+              await fetch(FUNCTION_URL, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                      id_anonimo: anonymousId,
+                      consenso_analytics: true,
+                      url_pagina: window.location.href,
+                      lingua: "it"
+                  })
+              });
+          } catch (e) { console.error("Registry error:", e); }
+      });
+
+      declineBtn.addEventListener('click', () => {
+          setCookie(COOKIE_NAME, 'declined', 30);
+          banner.classList.add('translate-y-full');
+      });
+
+      // Mobile Menu Logic
+      const mobileToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+      });
     </script>
 </body>
 </html>y>
