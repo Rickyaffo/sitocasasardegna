@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Stay | San Teodoro Apartment</title>
+    <title>Book | San Teodoro Apartment</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
-    <!-- Google Tag Manager (Script base sbloccato solo al consenso) -->
     <script>
-      // Global dataLayer
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-
-      // Default consent (Deny for GDPR)
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'analytics_storage': 'denied',
@@ -41,6 +38,38 @@
             }
         }
     </script>
+    <style>
+        .flatpickr-calendar {
+            background: #fff;
+            box-shadow: none;
+            border: 1px solid #f3f4f6;
+            width: 100% !important;
+        }
+        .flatpickr-day.selected {
+            background: #C5A059 !important;
+            border-color: #C5A059 !important;
+        }
+        .flatpickr-day:hover {
+            background: #f3f4f6 !important;
+        }
+        .flatpickr-day.today {
+            border-color: #C5A059 !important;
+        }
+        .flatpickr-months .flatpickr-month {
+            color: #262626 !important;
+            fill: #262626 !important;
+        }
+        .flatpickr-current-month .flatpickr-monthDropdown-months {
+            font-weight: 700 !important;
+        }
+        .flatpickr-weekday {
+            color: #C5A059 !important;
+            font-weight: 600 !important;
+        }
+        .flatpickr-calendar.inline {
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body class="bg-ivory text-charcoal font-sans antialiased">
 
@@ -52,15 +81,15 @@
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-6 md:space-x-8">
                 <a href="index.html" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition">Home</a>
-                <a href="services.html" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition underline underline-offset-8 decoration-[#C5A059]">The Stay</a>
+                <a href="services.html" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition">The Stay</a>
                 <a href="gallery.html" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition">Gallery</a>
                 <a href="index.html#reviews" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition">Reviews</a>
                 <a href="index.html#contatti" class="uppercase tracking-widest text-xs hover:text-[#C5A059] transition">Contact</a>
                 
                 <div class="border-l border-gray-600 pl-8 flex space-x-4">
-                    <a href="../services.html" class="hover:text-[#C5A059] transition text-[10px]">IT</a>
+                    <a href="../prenota.html" class="hover:text-[#C5A059] transition text-[10px]">IT</a>
                     <span class="text-gray-500">|</span>
-                    <a href="services.html" class="text-[#C5A059] font-bold text-[10px]">EN</a>
+                    <a href="prenota.html" class="text-[#C5A059] font-bold text-[10px]">EN</a>
                 </div>
                 
                 <a href="tel:+393381087298" class="hover:text-[#C5A059] transition flex items-center ml-4" title="Call Us">
@@ -69,21 +98,7 @@
                     </svg>
                 </a>
                 
-                <div class="relative group cursor-pointer">
-                    <div class="hover:text-[#C5A059] transition flex items-center" title="Get Directions">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                        </svg>
-                    </div>
-                    <div class="absolute right-0 mt-2 w-56 bg-white text-[#262626] rounded-md shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden border border-gray-100">
-                        <div class="px-4 py-3 bg-gray-50 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b">Get directions with:</div>
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=via+cala+girgolu+monte+petrosu+ss+italia" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">📍 Google Maps</a>
-                        <a href="https://waze.com/ul?q=via+cala+girgolu+monte+petrosu+ss+italia&navigate=yes" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">🚗 Waze</a>
-                        <a href="https://moovitapp.com/directions?to=via+cala+girgolu+monte+petrosu+ss+italia" target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm font-sans hover:bg-[#C5A059] hover:text-white transition">🚌 Moovit</a>
-                    </div>
-                </div>
-                
-                <a href="prenota.html" class="px-6 py-2 border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition inline-block ml-4 text-xs tracking-widest uppercase">Book</a>
+                <a href="prenota.html" class="px-6 py-2 border border-[#C5A059] bg-[#C5A059] text-white transition inline-block ml-4 text-xs tracking-widest uppercase">Book</a>
             </div>
 
             <!-- Mobile Menu Toggle -->
@@ -102,88 +117,61 @@
             <a href="index.html#reviews" class="block hover:text-[#C5A059] transition">Reviews</a>
             <a href="index.html#contatti" class="block hover:text-[#C5A059] transition">Contact</a>
             <div class="flex justify-center space-x-4 pt-4 border-t border-gray-700">
-                <a href="../services.html" class="hover:text-[#C5A059]">IT</a>
+                <a href="../prenota.html" class="hover:text-[#C5A059]">IT</a>
                 <span class="text-gray-500">|</span>
-                <a href="services.html" class="text-[#C5A059] font-bold">EN</a>
+                <a href="prenota.html" class="text-[#C5A059] font-bold">EN</a>
             </div>
-            <a href="prenota.html" class="block py-4 border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition mx-4">Book Now</a>
+            <a href="prenota.html" class="block py-4 bg-[#C5A059] text-white transition mx-4 uppercase tracking-widest text-xs">Book Now</a>
         </div>
     </nav>
 
     <main class="py-40 px-6 max-w-7xl mx-auto">
         <header class="mb-24 text-center" data-aos="fade-down">
-            <h1 class="font-serif text-5xl md:text-7xl mb-6 italic">Refined Comfort</h1>
-            <p class="text-gray-500 uppercase tracking-[0.3em] text-sm">Amenities & House Etiquette</p>
+            <h1 class="font-serif text-5xl md:text-7xl mb-6 italic">Book Your Stay</h1>
+            <p class="text-gray-500 uppercase tracking-[0.3em] text-sm">Check availability and request your booking</p>
         </header>
 
-        <!-- Amenities Grid -->
-        <div class="grid md:grid-cols-2 gap-24 mb-32">
-            <div data-aos="fade-right">
-                <h2 class="font-serif text-3xl mb-12 italic border-b border-gray-100 pb-4">Interior Essentials</h2>
-                <ul class="space-y-8">
-                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
-                        <span class="font-medium uppercase tracking-widest text-xs">Climate Control</span>
-                        <span class="text-gray-500 italic font-serif">Full Air Conditioning</span>
-                    </li>
-                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
-                        <span class="font-medium uppercase tracking-widest text-xs">Culinary</span>
-                        <span class="text-gray-500 italic font-serif">Fully Equipped Kitchenette</span>
-                    </li>
-                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
-                        <span class="font-medium uppercase tracking-widest text-xs">Laundry</span>
-                        <span class="text-gray-500 italic font-serif">Washing Machine & Ironing Set</span>
-                    </li>
-                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
-                        <span class="font-medium uppercase tracking-widest text-xs">Entertainment</span>
-                        <span class="text-gray-500 italic font-serif">Flat-screen TV</span>
-                    </li>
-                </ul>
+        <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Calendar Section -->
+            <div class="lg:col-span-2 bg-white p-6 md:p-10 shadow-sm border border-gray-100" data-aos="fade-right">
+                <h2 class="font-serif text-2xl mb-8 italic">Select your dates</h2>
+                <div id="calendar-inline"></div>
             </div>
 
-            <div data-aos="fade-left">
-                <h2 class="font-serif text-3xl mb-12 italic border-b border-gray-100 pb-4">Outdoor & Service</h2>
-                <ul class="space-y-8">
-                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
-                        <span class="font-medium uppercase tracking-widest text-xs">Private Veranda</span>
-                        <span class="text-gray-500 italic font-serif">Covered Entrance Balcony</span>
-                    </li>
-                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
-                        <span class="font-medium uppercase tracking-widest text-xs">Check-in</span>
-                        <span class="text-gray-500 italic font-serif">Self Check-in & Staff Support</span>
-                    </li>
-                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
-                        <span class="font-medium uppercase tracking-widest text-xs">Parking</span>
-                        <span class="text-gray-500 italic font-serif">Dedicated Private Space</span>
-                    </li>
-                    <li class="flex justify-between items-end border-b border-gray-50 pb-2">
-                        <span class="font-medium uppercase tracking-widest text-xs">Water Supply</span>
-                        <span class="text-gray-500 italic font-serif">Private Water Reserve</span>
-                    </li>
-                </ul>
+            <!-- Banner Section -->
+            <div class="lg:col-span-1" data-aos="fade-left">
+                <div id="booking-banner" class="bg-charcoal text-white p-8 sticky top-32 shadow-2xl border-t-4 border-gold">
+                    <div id="banner-content-initial">
+                        <h3 class="font-serif text-2xl mb-6 italic text-gold">Check Availability</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">Select your stay dates on the calendar to check real-time availability.</p>
+                        <div class="border-t border-gray-700 pt-6">
+                            <p class="text-[10px] uppercase tracking-widest text-gray-500">Minimum stay: 3 nights</p>
+                        </div>
+                    </div>
+
+                    <div id="banner-content-selected" class="hidden">
+                        <h3 class="font-serif text-2xl mb-2 italic text-gold">Dates available!</h3>
+                        <p class="text-gray-400 text-xs uppercase tracking-widest mb-6">Great choice for your stay</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-[10px] uppercase tracking-widest text-gray-400">Check-in</span>
+                                <span id="check-in-display" class="font-medium text-sm"></span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-[10px] uppercase tracking-widest text-gray-400">Check-out</span>
+                                <span id="check-out-display" class="font-medium text-sm"></span>
+                            </div>
+                        </div>
+
+                        <a id="whatsapp-link" href="https://wa.me/393381087298" target="_blank" rel="noopener noreferrer" class="block w-full bg-gold hover:bg-white hover:text-charcoal text-white text-center py-4 uppercase tracking-widest text-xs font-bold transition-all duration-300 shadow-lg">
+                            Request Booking
+                        </a>
+                        <p class="text-[10px] text-center text-gray-500 mt-4 italic">You will be contacted on WhatsApp for confirmation</p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- House Rules -->
-        <section class="bg-white p-12 md:p-24 shadow-sm border border-gray-50" data-aos="fade-up">
-            <h2 class="font-serif text-4xl mb-16 text-center italic">House Etiquette</h2>
-            <div class="grid md:grid-cols-3 gap-12 text-center">
-                <div>
-                    <span class="block text-gold mb-4 text-2xl">&nbsp;🚭</span>
-                    <h3 class="uppercase tracking-widest text-xs font-bold mb-4">Smoking</h3>
-                    <p class="text-sm text-gray-500">Smoking is strictly prohibited inside the apartment.</p>
-                </div>
-                <div>
-                    <span class="block text-gold mb-4 text-2xl">🐾</span>
-                    <h3 class="uppercase tracking-widest text-xs font-bold mb-4">Pets</h3>
-                    <p class="text-sm text-gray-500">Pets are not allowed to ensure maximum hygiene for all guests.</p>
-                </div>
-                <div>
-                    <span class="block text-gold mb-4 text-2xl">🤫</span>
-                    <h3 class="uppercase tracking-widest text-xs font-bold mb-4">Quiet Hours</h3>
-                    <p class="text-sm text-gray-500">Please respect quiet hours from 11:00 PM to 08:00 AM.</p>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="py-20 border-t border-gray-100 text-center">
@@ -239,8 +227,46 @@
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
       AOS.init({ duration: 1000, once: true });
+
+      // Calendar Logic
+      const disabledDates = [
+          { from: "2026-06-15", to: "2026-06-28" },
+          { from: "2026-06-30", to: "2026-07-10" },
+          { from: "2026-07-14", to: "2026-07-21" },
+          { from: "2026-08-04", to: "2026-08-15" }
+      ];
+
+      const calendar = flatpickr("#calendar-inline", {
+          inline: true,
+          mode: "range",
+          minDate: "today",
+          disable: disabledDates,
+          dateFormat: "d/m/Y",
+          onChange: function(selectedDates, dateStr, instance) {
+              const initialContent = document.getElementById('banner-content-initial');
+              const selectedContent = document.getElementById('banner-content-selected');
+              
+              if (selectedDates.length === 2) {
+                  initialContent.classList.add('hidden');
+                  selectedContent.classList.remove('hidden');
+                  
+                  const checkIn = selectedDates[0].toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+                  const checkOut = selectedDates[1].toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+                  
+                  document.getElementById('check-in-display').textContent = checkIn;
+                  document.getElementById('check-out-display').textContent = checkOut;
+                  
+                  const waMessage = `Hi! I would like to request a booking for Casa Cala Girgolu from ${checkIn} to ${checkOut}.`;
+                  document.getElementById('whatsapp-link').href = `https://wa.me/393381087298?text=${encodeURIComponent(waMessage)}`;
+              } else {
+                  initialContent.classList.remove('hidden');
+                  selectedContent.classList.add('hidden');
+              }
+          }
+      });
 
       // --- SERVERLESS COOKIE SYSTEM ---
       const COOKIE_NAME = "consenso_cookie_salvato";
@@ -271,23 +297,17 @@
       }
 
       function loadTracking() {
-          // Update consent
           gtag('consent', 'update', {
             'ad_storage': 'granted',
             'analytics_storage': 'granted'
           });
-
-          // Load gtag.js
           const gId = 'G-584LHWXEHD';
           const script = document.createElement('script');
           script.async = true;
           script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gId;
           document.head.appendChild(script);
-
           gtag('js', new Date());
           gtag('config', gId);
-
-          // Load GTM
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -306,7 +326,7 @@
 
       acceptBtn.addEventListener('click', async () => {
           const anonymousId = generateUUID();
-          setCookie(COOKIE_NAME, anonymousId, 180); // 6 months
+          setCookie(COOKIE_NAME, anonymousId, 180);
           banner.classList.add('translate-y-full');
           loadTracking();
           try {
@@ -328,14 +348,11 @@
           banner.classList.add('translate-y-full');
       });
 
-      // Mobile Menu Logic
       const mobileToggle = document.getElementById('mobile-menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
-
       mobileToggle.addEventListener('click', () => {
           mobileMenu.classList.toggle('hidden');
       });
     </script>
 </body>
-</html>
 </html>

@@ -1,37 +1,30 @@
-Hai la fortuna di avere tutte recensioni da 5 stelle, quindi complimenti! Sono tutte ottime, ma per un sito web non ha senso inserirle tutte e 19.
+Obiettivo: Eliminare definitivamente i link esterni ad Airbnb da tutto il sito e creare un sistema di prenotazione interno basato su una nuova pagina con calendario interattivo.
 
-Le recensioni migliori per il web sono quelle che:
+Agisci su tutti i file del progetto per implementare questa logica:
 
-Non sono né troppo lunghe né troppo corte.
+1. RIMOZIONE DI AIRBNB DAI FILE ESISTENTI:
+Esamina tutti i file HTML del sito. Trova qualsiasi link o bottone che punti alla pagina di Airbnb. Sostituisci la destinazione di questi link per farli puntare a una nuova pagina che chiameremo "prenota.html" (assicurati di usare il percorso relativo corretto per i file che si trovano nella cartella /en/). Se il testo del link o del bottone dice "Airbnb", modificalo in "Prenota" (o "Book" per i file in inglese).
 
-Evidenziano i veri "punti di forza" della casa (il terrazzo, l'aria fresca/condizionata, il parcheggio, il silenzio).
+2. CREAZIONE DELLE NUOVE PAGINE DI PRENOTAZIONE:
+Crea il nuovo file `public/prenota.html` (e la sua variante inglese `public/en/prenota.html`). Per mantenere la coerenza del sito, copia l'esatta struttura di base dalla pagina `services.htm
+l` (quindi mantieni intatti l'intestazione, il menu di navigazione principale, il footer e il bottone fluttuante di WhatsApp).
 
-Rassicurano l'utente sulle foto (confermando che la casa è dal vivo esattamente come online).
+3. STRUTTURA DEL CALENDARIO E DEL BANNER:
+Nel corpo principale di questa nuova pagina, crea un layout diviso in due sezioni (ad esempio affiancate su PC e impilate su smartphone):
+- Nella sezione principale: Inserisci un calendario interattivo "inline" (sempre aperto e visibile, usa una libreria adatta allo scopo) che permetta all'utente di selezionare un intervallo di date (arrivo e partenza).
+- Nella sezione laterale: Crea un banner o un riquadro grafico riassuntivo.
 
-Ho escluso quelle troppo brevi (come i soli asterischi di Manuel), quelle tradotte in modo un po' strano dal sistema e quella che menzionava l'assenza del microonde (è sempre una recensione a 5 stelle, ma sul tuo sito web vuoi mettere in luce solo i pregi massimi).
+4. IMPOSTAZIONE DELLE DATE NON DISPONIBILI:
+Il calendario deve impedire di selezionare le date passate. Inoltre, devi bloccare (rendendoli grigi e non cliccabili) i seguenti periodi che sono già stati prenotati per l'estate 2026:
+- Dal 15 Giugno 2026 al 28 Giugno 2026
+- Dal 30 Giugno 2026 al 10 Luglio 2026
+- Dal 14 Luglio 2026 al 21 Luglio 2026
+- Dal 4 Agosto 2026 al 15 Agosto 2026
 
-Ecco la selezione delle 6 recensioni perfette, filtrate e pronte da copiare e incollare nel tuo sito, divise per il "punto di forza" che mettono in risalto:
+5. INTERATTIVITÀ DEL BANNER:
+- Stato iniziale: Quando l'utente apre la pagina, il banner laterale deve mostrare un messaggio che lo invita a selezionare le date del soggiorno sul calendario per verificare la disponibilità.
+- Stato selezionato: Appena l'utente seleziona una data di inizio e una di fine valide sul calendario, il banner deve aggiornarsi dinamicamente. Deve mostrare un messaggio di successo ("Date disponibili!"), riepilogare le date scelte e far apparire un pulsante ben visibile con scritto "Richiedi Prenotazione" ("Request Booking" in inglese).
+- Il pulsante "Richiedi Prenotazione" deve essere un link diretto al mio contatto WhatsApp: https://wa.me/393381087298
 
-1. La più completa (Perfetta come recensione principale)
-"Alloggio molto carino e funzionale, in ottima posizione nella splendida e tranquilla Montepetrosu. L'abitazione è ventilata e recente, con ottimi infissi e zanzariere. Molto piacevole cenare nella terrazza. Riccardo disponibile e gentile."
-— Michela (Genova, Italia)
-
-2. Quella che conferma l'affidabilità (Ottima per rassicurare)
-"L'appartamento è esattamente come mostrato nelle foto e descritto nell'annuncio. È molto pulito e dotato di tutto il necessario. La posizione è ottima, vicino alle spiagge più famose, e avere un posto auto è stato un grande vantaggio."
-— Andrijana (Zagabria, Croazia)
-
-3. Quella che elogia la posizione "Strategica" (Breve e d'impatto)
-"La casa è nuova e ben curata con una bella terrazza. La zona è strategica: fuori dal caos di San Teodoro ma vicina a tutte le spiagge."
-— Federica (Almenno San Salvatore, Italia)
-
-4. Quella incentrata sul comfort e il fresco
-"Casa in posizione elevata che garantisce un’ottimo giro d’aria anche nelle giornate più calde. L’appartamento è nuovo e tenuto molto bene con tutti gli elettrodomestici nuovi e perfettamente funzionanti. Consigliato."
-— Bruno
-
-5. Quella che valorizza il relax e il silenzio
-"Siamo state veramente bene: la casa è accogliente, pulita, ordinata e ben arredata. Ho apprezzato molto il silenzio dopo altre esperienze rumorose. Casa fresca e dotata di aria condizionata. A due passi ci sono locali dove si mangia bene."
-— Patrizia (Campi Bisenzio, Italia)
-
-6. Quella per famiglie o gruppi
-"La casa era comoda e grande con aria condizionata, parcheggio e un bel terrazzo. Nei dintorni c’erano alcuni bar e ristoranti e le spiagge erano a pochi minuti di macchina. Riccardo è sempre stato gentile e disponibile."
-— Giovanni (Bologna, Italia)
+6. DESIGN E STILE:
+Applica uno stile elegante e moderno al calendario e al banner, utilizzando le classi Tailwind e i colori del brand (oro, grigio scuro, bianco sporco) già presenti nel resto del sito.
